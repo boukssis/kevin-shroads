@@ -277,6 +277,16 @@ img {
   transform: scale(1.02);
 }
 
+.hero-portrait img,
+.hero-portrait .next-image {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-portrait:hover img,
+.hero-portrait:hover .next-image {
+  transform: scale(1.035);
+}
+
 @keyframes fadeUp {
   to {
     opacity: 1;
