@@ -1,47 +1,55 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/site";
+
+const principles = [
+  "Notice more",
+  "React less automatically",
+  "Create more space before choosing",
+] as const;
 
 export function MindfulnessSection() {
   return (
-    <section className="section-pad bg-pine text-white">
+    <section className="section-pad bg-bone">
       <div className="container-site grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div>
-          <p className="eyebrow !text-copper">Mindfulness & Meditation</p>
-          <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3rem)] text-white">
-            Presence changes how we meet what&apos;s in front of us.
+        <Reveal>
+          <figure className="image-reveal relative aspect-[16/11] overflow-hidden rounded-[8px]">
+            <Image
+              src={images.water.src}
+              alt={images.water.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="object-cover next-image"
+            />
+          </figure>
+        </Reveal>
+
+        <Reveal delayMs={80}>
+          <p className="eyebrow">Mindfulness</p>
+          <h2 className="display mt-3 text-[clamp(1.95rem,3.8vw,2.9rem)]">
+            Presence changes the way we respond.
           </h2>
-          <div className="mt-5 max-w-xl space-y-4 text-white/78">
-            <p>
-              Meditation isn&apos;t necessarily about eliminating thoughts.
-              It&apos;s about developing a clearer relationship with what arises —
-              so responses can come from awareness instead of automatic reaction.
-            </p>
-            <p>
-              Kevin periodically offers group mindfulness and meditation
-              experiences, and weaves these practices into 1:1 coaching where
-              useful.
-            </p>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="/mindfulness" variant="onDark" showArrow>
+          <p className="mt-4 max-w-md text-muted">
+            Meditation isn&apos;t about having no thoughts. It&apos;s about
+            developing a different relationship with what arises.
+          </p>
+          <ul className="mt-6 space-y-3 border-t border-line pt-5">
+            {principles.map((item) => (
+              <li
+                key={item}
+                className="interactive-row border-b border-line pb-3 text-[1.02rem] text-ink"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-7">
+            <Button href="/mindfulness" showArrow>
               Explore Mindfulness
             </Button>
-            <Button href="/contact" variant="ghostOnDark">
-              Ask About Upcoming Groups
-            </Button>
           </div>
-        </div>
-
-        <figure className="image-reveal relative aspect-[5/4]">
-          <Image
-            src={images.water.src}
-            alt={images.water.alt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 560px"
-            className="object-cover next-image"
-          />
-        </figure>
+        </Reveal>
       </div>
     </section>
   );

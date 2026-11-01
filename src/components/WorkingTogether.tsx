@@ -1,35 +1,36 @@
-import { approachPillars } from "@/data/site";
+import { Reveal } from "@/components/Reveal";
+import { getStartedSteps } from "@/data/site";
 
 export function WorkingTogether() {
   return (
-    <section className="section-pad">
+    <section className="section-pad-sm bg-white">
       <div className="container-site">
-        <div className="max-w-2xl">
+        <Reveal>
           <p className="eyebrow">Working together</p>
-          <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3rem)]">
-            What the work looks like in practice
+          <h2 className="display mt-3 text-[clamp(1.85rem,3.5vw,2.7rem)]">
+            How to begin
           </h2>
-          <p className="mt-4 text-muted">
-            Not advice as performance. Not pressure to have everything figured
-            out. A thoughtful partnership for noticing, understanding and moving.
-          </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-10 grid gap-8 border-t border-line pt-8 md:grid-cols-3 md:gap-0">
-          {approachPillars.map((item, index) => (
-            <article
-              key={item.title}
-              className={
-                index === 0
-                  ? "md:pr-8"
-                  : "border-t border-line pt-8 md:border-l md:border-t-0 md:px-8 md:pt-0"
-              }
-            >
-              <h3 className="font-serif text-[1.55rem] text-ink">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {item.description}
-              </p>
-            </article>
+        <div className="mt-8 grid gap-0 border-t border-line md:grid-cols-3">
+          {getStartedSteps.map((step, index) => (
+            <Reveal key={step.number} delayMs={index * 70}>
+              <article
+                className={`py-6 md:px-6 md:py-8 ${
+                  index > 0 ? "border-t border-line md:border-l md:border-t-0" : ""
+                }`}
+              >
+                <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-copper">
+                  {step.number}
+                </p>
+                <h3 className="mt-3 font-serif text-[1.7rem] text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-2 max-w-xs text-sm text-muted">
+                  {step.description}
+                </p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

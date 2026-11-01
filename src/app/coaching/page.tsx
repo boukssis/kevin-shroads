@@ -3,12 +3,13 @@ import { Button } from "@/components/Button";
 import { CoachingFramework } from "@/components/CoachingFramework";
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/PageHero";
+import { Reveal } from "@/components/Reveal";
 import { coachingFaq, coachingFor, coachingThemes } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "1:1 Coaching",
   description:
-    "1:1 coaching with Kevin Shroads for people navigating transitions, decisions, uncertainty or a direction that no longer fits.",
+    "1:1 coaching with Kevin Shroads for people navigating transitions, decisions, or a direction that no longer fits.",
   alternates: { canonical: "/coaching" },
 };
 
@@ -20,11 +21,10 @@ export default function CoachingPage() {
         title="Coaching for the moments when something needs to change."
       >
         <p>
-          Focused 1:1 conversations for people navigating transitions,
-          decisions, uncertainty or the feeling that their current direction no
-          longer fits.
+          Focused conversations for people navigating transitions, decisions, or
+          the feeling that their current direction no longer fits.
         </p>
-        <div className="mt-7">
+        <div className="mt-6">
           <Button href="/contact" showArrow>
             Start a Conversation
           </Button>
@@ -32,88 +32,86 @@ export default function CoachingPage() {
       </PageHero>
 
       <section className="section-pad-sm bg-white">
-        <div className="container-site grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="display text-[clamp(1.8rem,3.5vw,2.6rem)]">
-              Who coaching is for
+        <div className="container-site">
+          <Reveal>
+            <h2 className="display text-[clamp(1.8rem,3.4vw,2.5rem)]">
+              When coaching might help
             </h2>
-            <ul className="mt-6 space-y-4">
-              {coachingFor.map((item) => (
-                <li
-                  key={item}
-                  className="border-t border-line pt-4 text-[1.02rem] text-ink"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="display text-[clamp(1.8rem,3.5vw,2.6rem)]">
-              What you may explore
-            </h2>
-            <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3">
-              {coachingThemes.map((theme) => (
-                <li
-                  key={theme}
-                  className="border-b border-line pb-3 text-sm text-muted"
-                >
-                  {theme}
-                </li>
-              ))}
-            </ul>
-          </div>
+          </Reveal>
+          <ul className="mt-6 max-w-2xl">
+            {coachingFor.map((item) => (
+              <li
+                key={item}
+                className="interactive-row border-t border-line py-4 text-[1.02rem] text-ink last:border-b"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <CoachingFramework showCta={false} compact />
+      <CoachingFramework showCta={false} />
+
+      <section className="section-pad-sm">
+        <div className="container-site">
+          <Reveal>
+            <h2 className="display text-[clamp(1.8rem,3.4vw,2.5rem)]">
+              Topics you may explore
+            </h2>
+          </Reveal>
+          <ul className="mt-6 grid grid-cols-2 gap-x-8 gap-y-0 sm:grid-cols-3 md:grid-cols-5">
+            {coachingThemes.map((theme) => (
+              <li
+                key={theme}
+                className="border-t border-line py-3 text-sm text-muted"
+              >
+                {theme}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section className="section-pad bg-white">
-        <div className="container-site">
-          <h2 className="display text-[clamp(1.8rem,3.5vw,2.6rem)]">
-            Practical questions
-          </h2>
-          <div className="mt-8 divide-y divide-line border-y border-line">
+        <div className="container-site max-w-3xl">
+          <Reveal>
+            <h2 className="display text-[clamp(1.8rem,3.4vw,2.5rem)]">
+              Practical questions
+            </h2>
+          </Reveal>
+          <div className="mt-6 divide-y divide-line border-y border-line">
             {coachingFaq.map((item) => (
-              <details key={item.question} className="group py-5">
+              <details key={item.question} className="group py-4">
                 <summary className="cursor-pointer list-none font-medium text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   <span className="flex items-start justify-between gap-4">
                     {item.question}
                     <span
-                      className="mt-1 text-copper transition-transform group-open:rotate-45"
+                      className="text-copper transition-transform group-open:rotate-45"
                       aria-hidden="true"
                     >
                       +
                     </span>
                   </span>
                 </summary>
-                <p className="mt-3 max-w-2xl text-[0.98rem] leading-relaxed text-muted">
-                  {item.answer}
-                </p>
+                <p className="mt-3 max-w-xl text-sm text-muted">{item.answer}</p>
               </details>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section-pad-sm bg-pine text-white">
-        <div className="container-site max-w-2xl">
-          <p className="eyebrow !text-copper">Important</p>
-          <h2 className="display mt-3 text-[clamp(1.8rem,3.5vw,2.6rem)] text-white">
-            What coaching isn&apos;t
-          </h2>
-          <p className="mt-4 text-white/78">
-            Coaching is not therapy, medical treatment or crisis support. It is
-            a personal-development partnership focused on awareness and
-            intentional forward movement. If you are in crisis or need clinical
-            care, please seek appropriate professional support.
-          </p>
+          <div className="mt-10 rounded-[8px] bg-pine px-5 py-6 text-white">
+            <h3 className="font-serif text-2xl">What coaching isn&apos;t</h3>
+            <p className="mt-2 text-sm text-white/75">
+              Coaching is not therapy, medical treatment or crisis support. If
+              you need clinical care, please seek appropriate professional help.
+            </p>
+          </div>
         </div>
       </section>
 
       <CTASection
         title="Ready to explore 1:1 coaching?"
-        copy="Start with a conversation. Share a little about where you are and what you're hoping to explore."
+        copy="Start with a conversation."
         secondaryHref="/mindfulness"
         secondaryLabel="Explore Mindfulness"
       />

@@ -36,11 +36,11 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-400",
         scrolled || open
-          ? "border-line bg-bone/95 backdrop-blur-md"
-          : "border-transparent bg-bone/80 backdrop-blur-sm",
+          ? "border-line bg-white/90 backdrop-blur-md"
+          : "border-transparent bg-bone/75 backdrop-blur-sm",
       )}
     >
-      <div className="container-site flex h-[72px] items-center justify-between gap-6 md:h-[76px]">
+      <div className="container-site flex h-[72px] items-center justify-between gap-6">
         <Link href="/" className="group focus-ring rounded-sm">
           <span className="block font-serif text-[1.4rem] leading-none tracking-[-0.03em] text-ink md:text-[1.5rem]">
             {siteConfig.name}

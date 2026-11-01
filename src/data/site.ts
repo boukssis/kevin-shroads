@@ -1,14 +1,10 @@
-/**
- * Centralized site configuration for Kevin Shroads Coaching & Transformation.
- */
-
 export const siteConfig = {
   name: "Kevin Shroads",
   descriptor: "Coaching & Transformation",
   location: "Denver, Colorado",
-  tagline: "Move through change with more clarity and intention.",
+  tagline: "See where you are. Choose what comes next.",
   description:
-    "1:1 coaching and mindfulness-based support for people navigating change, questioning what comes next, or wanting to live with greater awareness.",
+    "1:1 coaching for people navigating change, uncertainty, or the feeling that their current direction no longer fits.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kevin-shroads.com",
   linkedIn: "https://www.linkedin.com/in/kevin-shroads-882051179/",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
@@ -38,7 +34,6 @@ export const siteConfig = {
       "personal transformation coach Colorado",
       "1:1 coaching Colorado",
       "mindfulness coaching Colorado",
-      "meditation coaching",
       "life transition coaching",
     ],
   },
@@ -61,63 +56,61 @@ export const images = {
     src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80",
     alt: "Hands writing in a notebook with natural light",
   },
+  detail: {
+    src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+    alt: "Close natural texture in soft light",
+  },
   cta: {
     src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80",
     alt: "Soft morning light across open landscape",
   },
 } as const;
 
-/** Website presentation device — not claimed as Kevin's official methodology. */
 export const coachingFramework = [
-  {
-    number: "01",
-    title: "Notice",
-    description:
-      "Create enough space to see what's actually happening.",
-  },
+  { number: "01", title: "Notice", description: "See what's actually happening." },
   {
     number: "02",
     title: "Understand",
-    description:
-      "Explore patterns, pressure, expectations and what matters beneath them.",
+    description: "Recognize what is shaping the situation.",
   },
   {
     number: "03",
     title: "Choose",
-    description: "Clarify the direction that feels most honest.",
+    description: "Clarify what feels true and important.",
   },
   {
     number: "04",
     title: "Move",
-    description:
-      "Turn insight into practical action and learn from what follows.",
+    description: "Turn insight into the next step.",
   },
 ] as const;
 
 export const humanSituations = [
   {
+    number: "01",
     title: "At a crossroads",
-    description:
-      "Something is changing, but the next direction isn't clear.",
+    description: "Something is changing, but the direction isn't clear.",
   },
   {
-    title: "Successful but disconnected",
+    number: "02",
+    title: "Disconnected",
     description:
-      "Things may look fine externally while something internally feels off.",
+      "Life may look fine externally while something internally no longer fits.",
   },
   {
-    title: "Ready for a different way",
+    number: "03",
+    title: "Ready for change",
     description:
-      "You want your next decisions to come from awareness instead of pressure.",
+      "You want your next decision to come from awareness rather than pressure.",
   },
 ] as const;
 
 export const coachingFor = [
   "You're entering or leaving a major chapter.",
   "A decision keeps circling without becoming clearer.",
-  "Your external life works, but something internally feels disconnected.",
+  "Your external life works, but something internally feels off.",
   "You're tired of reacting from urgency.",
-  "You want greater intention in how you work, relate and live.",
+  "You want more intention in how you work, relate and live.",
 ] as const;
 
 export const coachingThemes = [
@@ -130,56 +123,66 @@ export const coachingThemes = [
   "Relationships",
   "Presence",
   "Identity",
-  "Intentional action",
+  "Next steps",
 ] as const;
 
 export const approachPillars = [
   {
     title: "Awareness",
-    description:
-      "See what is actually happening before rushing to change it.",
+    description: "See what is happening before rushing to change it.",
   },
   {
     title: "Perspective",
-    description:
-      "Question the story, assumption or pressure shaping the situation.",
+    description: "Question the story or pressure shaping the moment.",
   },
   {
     title: "Action",
-    description:
-      "Move from understanding into a practical next step.",
+    description: "Move from understanding into a practical next step.",
   },
 ] as const;
 
 export const coachingFaq = [
   {
-    question: "What happens in a coaching conversation?",
+    question: "What happens in a coaching session?",
     answer:
-      "Focused, honest conversation. Together you look at where you are, what feels off or unfinished, and what a more intentional next step might be.",
+      "Focused conversation. You look at where you are, what feels unfinished, and what a clearer next step might be.",
   },
   {
-    question: "Who do you typically work with?",
+    question: "Who is coaching for?",
     answer:
-      "People navigating transitions, decisions, uncertainty, or the sense that their current direction no longer fits.",
+      "People navigating transitions, decisions, uncertainty, or a direction that no longer fits.",
   },
   {
-    question: "Is coaching virtual?",
+    question: "Is coaching virtual or in person?",
     answer:
-      "Conversations can be held remotely. Format and logistics can be confirmed when you connect.",
+      "Conversations can be held remotely. Format can be confirmed when you connect.",
   },
   {
-    question: "How often do people meet with you?",
+    question: "How often would we meet?",
     answer:
-      "Cadence varies. Specific rhythm and format can be discussed during an initial conversation.",
-  },
-  {
-    question: "How do I know whether coaching is right for me?",
-    answer:
-      "If you're looking for space to think clearly and move with more intention — not clinical treatment — coaching may be a useful fit. An initial conversation helps clarify that.",
+      "Cadence varies. Format and rhythm can be discussed during an initial conversation.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Send a short note through the contact form. Kevin will respond and you can explore whether the work feels right.",
+      "Send a short note. Kevin responds, and you explore whether the fit feels right.",
+  },
+] as const;
+
+export const getStartedSteps = [
+  {
+    number: "01",
+    title: "Start",
+    description: "Send Kevin a short note about where you are.",
+  },
+  {
+    number: "02",
+    title: "Talk",
+    description: "Have a conversation and see whether the fit feels right.",
+  },
+  {
+    number: "03",
+    title: "Work",
+    description: "If it makes sense, begin the coaching process.",
   },
 ] as const;

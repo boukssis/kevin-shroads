@@ -1,55 +1,72 @@
-import { coachingFramework } from "@/data/site";
+import Image from "next/image";
 import { Button } from "@/components/Button";
+import { Reveal } from "@/components/Reveal";
+import { coachingFramework, images } from "@/data/site";
 
 type CoachingFrameworkProps = {
   showCta?: boolean;
-  compact?: boolean;
 };
 
-export function CoachingFramework({
-  showCta = true,
-  compact = false,
-}: CoachingFrameworkProps) {
+export function CoachingFramework({ showCta = true }: CoachingFrameworkProps) {
   return (
-    <section className={compact ? "section-pad-sm" : "section-pad"}>
-      <div className="container-site">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <p className="eyebrow">1:1 Coaching</p>
-            <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3rem)]">
-              A simple way to think about the work
-            </h2>
-            <p className="mt-4 max-w-xl text-muted">
-              Focused conversations that help you step outside the noise, see
-              your situation more clearly, and choose a next step you can stand
-              behind.
-            </p>
+    <section className="section-pad bg-pine text-white">
+      <div className="container-site grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+        <Reveal>
+          <div className="relative">
+            <figure className="image-reveal relative aspect-[4/5] max-w-md overflow-hidden rounded-[8px]">
+              <Image
+                src={images.journaling.src}
+                alt={images.journaling.alt}
+                fill
+                sizes="(max-width: 1024px) 90vw, 420px"
+                className="object-cover next-image"
+              />
+            </figure>
+            <figure className="image-reveal absolute -bottom-6 -right-2 hidden aspect-square w-36 overflow-hidden rounded-[8px] border-4 border-pine shadow-lg md:block lg:-right-4">
+              <Image
+                src={images.detail.src}
+                alt={images.detail.alt}
+                fill
+                sizes="160px"
+                className="object-cover next-image"
+              />
+            </figure>
           </div>
-          {showCta ? (
-            <Button href="/coaching" showArrow className="shrink-0 self-start md:self-auto">
-              Explore 1:1 Coaching
-            </Button>
-          ) : null}
-        </div>
+        </Reveal>
 
-        <ol className="mt-10 divide-y divide-line border-y border-line">
-          {coachingFramework.map((step) => (
-            <li
-              key={step.number}
-              className="grid gap-3 py-6 md:grid-cols-[5rem_10rem_1fr] md:items-baseline md:gap-8"
-            >
-              <p className="text-xs font-semibold tracking-[0.16em] text-copper">
-                {step.number}
-              </p>
-              <h3 className="font-serif text-2xl text-ink md:text-[1.7rem]">
-                {step.title}
-              </h3>
-              <p className="text-[0.98rem] leading-relaxed text-muted">
-                {step.description}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <Reveal delayMs={90}>
+          <p className="eyebrow !text-[#e2b089]">1:1 Coaching</p>
+          <h2 className="display mt-3 text-[clamp(1.95rem,3.8vw,3rem)] text-white">
+            A space to see what matters.
+          </h2>
+          <p className="mt-4 max-w-md text-[1.02rem] leading-relaxed text-white/75">
+            Focused conversations that help you step outside the noise,
+            understand what&apos;s asking for attention, and choose a next step
+            you can stand behind.
+          </p>
+
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-6">
+            {coachingFramework.map((step) => (
+              <li key={step.title} className="process-word">
+                <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-[#e2b089]">
+                  {step.number}
+                </p>
+                <h3 className="mt-1 font-serif text-2xl text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-sm text-white/70">{step.description}</p>
+              </li>
+            ))}
+          </ul>
+
+          {showCta ? (
+            <div className="mt-8">
+              <Button href="/coaching" variant="onDark" showArrow>
+                Explore 1:1 Coaching
+              </Button>
+            </div>
+          ) : null}
+        </Reveal>
       </div>
     </section>
   );

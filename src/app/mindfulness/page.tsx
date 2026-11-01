@@ -3,7 +3,23 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/PageHero";
+import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/site";
+
+const principles = [
+  {
+    title: "Notice",
+    description: "Meet thoughts and feelings without immediately being carried away.",
+  },
+  {
+    title: "Allow",
+    description: "Make room for what arises instead of forcing a blank mind.",
+  },
+  {
+    title: "Respond",
+    description: "Create space between what happens and how you choose to meet it.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Mindfulness & Meditation",
@@ -20,82 +36,100 @@ export default function MindfulnessPage() {
         title="Create more space between what happens and how you respond."
       >
         <p>
-          Practices that support awareness and presence — so you can meet life
-          with a little more steadiness and a little less automatic reaction.
+          Practices that support presence — so responses can come from awareness
+          instead of automatic reaction.
         </p>
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-6">
           <Button href="/contact" showArrow>
             Ask About the Next Group
-          </Button>
-          <Button href="/coaching" variant="secondary">
-            Explore 1:1 Coaching
           </Button>
         </div>
       </PageHero>
 
-      <section className="pb-4">
+      <section className="pb-2">
         <div className="container-site">
-          <figure className="image-reveal relative aspect-[16/8] md:aspect-[21/8]">
-            <Image
-              src={images.water.src}
-              alt={images.water.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover next-image"
-            />
-          </figure>
+          <Reveal>
+            <figure className="image-reveal relative aspect-[16/8] overflow-hidden rounded-[8px] md:aspect-[21/8]">
+              <Image
+                src={images.water.src}
+                alt={images.water.alt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover next-image"
+              />
+            </figure>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-pad">
-        <div className="container-site grid gap-10 md:grid-cols-2">
-          <article className="border-t border-line pt-6">
-            <h2 className="font-serif text-[1.8rem] text-ink md:text-[2rem]">
-              What mindfulness means here
-            </h2>
-            <p className="mt-4 text-muted">
-              Meeting the present moment with attention and honesty. Noticing
-              thoughts, emotions and patterns without immediately being carried
-              away by them.
-            </p>
-          </article>
-          <article className="border-t border-line pt-6">
-            <h2 className="font-serif text-[1.8rem] text-ink md:text-[2rem]">
+        <div className="container-site max-w-2xl">
+          <Reveal>
+            <h2 className="display text-[clamp(1.85rem,3.5vw,2.6rem)]">
               Meditation without perfection
             </h2>
             <p className="mt-4 text-muted">
-              Meditation isn&apos;t necessarily about eliminating thoughts.
-              It&apos;s about developing a different relationship with what
-              arises — returning to presence rather than demanding a blank mind.
+              Meditation isn&apos;t about having no thoughts. It&apos;s about
+              developing a different relationship with what arises — and bringing
+              that quality of attention into coaching and everyday life.
             </p>
-          </article>
-          <article className="border-t border-line pt-6">
-            <h2 className="font-serif text-[1.8rem] text-ink md:text-[2rem]">
-              Connected to coaching
-            </h2>
-            <p className="mt-4 text-muted">
-              When mindfulness informs coaching, the work becomes less about
-              forcing outcomes and more about seeing clearly enough to choose the
-              next honest step.
-            </p>
-          </article>
-          <article className="border-t border-line pt-6">
-            <h2 className="font-serif text-[1.8rem] text-ink md:text-[2rem]">
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad-sm bg-white">
+        <div className="container-site grid gap-0 border-t border-line md:grid-cols-3">
+          {principles.map((item, index) => (
+            <Reveal key={item.title} delayMs={index * 70}>
+              <article
+                className={`py-7 md:px-6 ${
+                  index > 0
+                    ? "border-t border-line md:border-l md:border-t-0"
+                    : ""
+                }`}
+              >
+                <h3 className="font-serif text-[1.7rem] text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-pad bg-bone">
+        <div className="container-site grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <Reveal>
+            <h2 className="display text-[clamp(1.85rem,3.5vw,2.6rem)]">
               Group experiences
             </h2>
-            <p className="mt-4 text-muted">
+            <p className="mt-4 max-w-md text-muted">
               Kevin periodically offers group mindfulness and meditation
-              experiences. Timing and format vary — ask about what&apos;s coming
-              next.
+              experiences. Timing and format vary — ask about what&apos;s next.
             </p>
-          </article>
+            <div className="mt-6">
+              <Button href="/contact" showArrow>
+                Ask About the Next Group
+              </Button>
+            </div>
+          </Reveal>
+          <Reveal delayMs={80}>
+            <figure className="image-reveal relative aspect-[5/4] overflow-hidden rounded-[8px]">
+              <Image
+                src={images.trail.src}
+                alt={images.trail.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 520px"
+                className="object-cover next-image"
+              />
+            </figure>
+          </Reveal>
         </div>
       </section>
 
       <CTASection
         title="Interested in mindfulness with Kevin?"
-        copy="Ask about upcoming group experiences, or explore how mindfulness can be part of 1:1 coaching."
+        copy="Ask about upcoming groups, or explore 1:1 coaching."
         primaryLabel="Ask About the Next Group"
         secondaryHref="/coaching"
         secondaryLabel="Explore 1:1 Coaching"
