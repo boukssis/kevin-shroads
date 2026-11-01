@@ -1,27 +1,17 @@
 /**
  * Centralized site configuration for Kevin Shroads Coaching & Transformation.
- * Replace placeholders after Kevin reviews the demo.
  */
 
 export const siteConfig = {
   name: "Kevin Shroads",
   descriptor: "Coaching & Transformation",
-  location: "Colorado / Denver area",
-  tagline: "Find clarity in where you are. Move intentionally toward what's next.",
-  shortTagline: "Slow down. See clearly. Move forward.",
+  location: "Denver, Colorado",
+  tagline: "Move through change with more clarity and intention.",
   description:
-    "1:1 coaching and mindfulness-based support focused on clarity, presence, alignment and intentional personal growth.",
+    "1:1 coaching and mindfulness-based support for people navigating change, questioning what comes next, or wanting to live with greater awareness.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kevin-shroads.com",
   linkedIn: "https://www.linkedin.com/in/kevin-shroads-882051179/",
-  /**
-   * PRODUCTION: set NEXT_PUBLIC_BOOKING_URL to Calendly, Cal.com, or another scheduler.
-   * Until configured, CTAs route to the contact form.
-   */
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
-  /**
-   * PRODUCTION: set NEXT_PUBLIC_CONTACT_ENDPOINT to your form handler.
-   * Demo falls back to /api/contact with a simulated success response in development.
-   */
   contactEndpoint:
     process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "/api/contact",
   social: {
@@ -44,175 +34,152 @@ export const siteConfig = {
     title: "Kevin Shroads | Coaching & Transformation",
     titleTemplate: "%s | Kevin Shroads",
     keywords: [
-      "Kevin Shroads Coaching",
-      "Life Coach Colorado",
-      "Personal Transformation Coach Colorado",
-      "Mindfulness Coach Colorado",
-      "Meditation Coaching",
-      "1:1 Personal Coaching",
-      "Transformation Coaching",
-      "Clarity Coaching",
+      "Kevin Shroads coaching",
+      "personal transformation coach Colorado",
+      "1:1 coaching Colorado",
+      "mindfulness coaching Colorado",
+      "meditation coaching",
+      "life transition coaching",
     ],
   },
 } as const;
 
 export const images = {
-  /**
-   * PORTRAIT: Replace with a verified professional photo of Kevin Shroads.
-   * Do not use an unrelated person's photograph.
-   * Until a verified portrait is provided, the site uses a replaceable placeholder treatment.
-   */
   portrait: {
-    src: "/images/kevin-portrait-placeholder.jpg",
-    alt: "Portrait placeholder for Kevin Shroads — replace with verified professional photography",
-    hasVerifiedPhoto: false,
-  },
-  hero: {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=80",
-    alt: "Quiet mountain ridgeline in soft morning light",
-  },
-  forest: {
-    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=80",
-    alt: "Sunlit forest path inviting a slower pace",
+    src: "/images/kevin-portrait.jpg",
+    alt: "Kevin Shroads",
   },
   water: {
-    src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=2000&q=80",
-    alt: "Still lake reflecting open sky",
+    src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1800&q=80",
+    alt: "Still water under soft open sky",
   },
   trail: {
-    src: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=80",
-    alt: "Quiet trail through open landscape",
-  },
-  morning: {
-    src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=80",
-    alt: "Soft morning light across a natural landscape",
-  },
-  reflection: {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80",
-    alt: "Mountain peaks above quiet clouds",
+    src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1800&q=80",
+    alt: "Fog settling over quiet hills",
   },
   journaling: {
-    src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80",
+    src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80",
     alt: "Hands writing in a notebook with natural light",
   },
-  meditationSpace: {
-    src: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=2000&q=80",
-    alt: "Calm seated presence in soft natural light",
-  },
   cta: {
-    src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=80",
-    alt: "Wide alpine landscape under open sky",
+    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80",
+    alt: "Soft morning light across open landscape",
   },
 } as const;
 
+/** Website presentation device — not claimed as Kevin's official methodology. */
 export const coachingFramework = [
   {
     number: "01",
-    title: "Pause",
+    title: "Notice",
     description:
-      "Step out of the noise long enough to notice what's actually happening.",
+      "Create enough space to see what's actually happening.",
   },
   {
     number: "02",
-    title: "See",
+    title: "Understand",
     description:
-      "Develop greater awareness around patterns, choices and priorities.",
+      "Explore patterns, pressure, expectations and what matters beneath them.",
   },
   {
     number: "03",
-    title: "Clarify",
-    description:
-      "Separate pressure and expectation from what genuinely matters.",
+    title: "Choose",
+    description: "Clarify the direction that feels most honest.",
   },
   {
     number: "04",
-    title: "Align",
-    description: "Identify the direction that feels honest and intentional.",
-  },
-  {
-    number: "05",
     title: "Move",
     description:
-      "Take practical next steps and learn from what unfolds.",
+      "Turn insight into practical action and learn from what follows.",
   },
 ] as const;
 
-export const whoThisIsFor = [
-  "You're moving through a transition.",
-  "You know something needs to change but can't yet see what.",
-  "You're taking action from pressure rather than clarity.",
-  "You've achieved things externally but feel disconnected internally.",
-  "You're seeking more peace and presence in your everyday life.",
-  "You want support navigating your next chapter intentionally.",
-  "You want space to hear yourself more clearly.",
+export const humanSituations = [
+  {
+    title: "At a crossroads",
+    description:
+      "Something is changing, but the next direction isn't clear.",
+  },
+  {
+    title: "Successful but disconnected",
+    description:
+      "Things may look fine externally while something internally feels off.",
+  },
+  {
+    title: "Ready for a different way",
+    description:
+      "You want your next decisions to come from awareness instead of pressure.",
+  },
+] as const;
+
+export const coachingFor = [
+  "You're entering or leaving a major chapter.",
+  "A decision keeps circling without becoming clearer.",
+  "Your external life works, but something internally feels disconnected.",
+  "You're tired of reacting from urgency.",
+  "You want greater intention in how you work, relate and live.",
 ] as const;
 
 export const coachingThemes = [
   "Transitions",
   "Direction",
   "Decision-making",
-  "Personal alignment",
-  "Habits and patterns",
   "Purpose",
-  "Growth",
-  "Relationship with work and life",
+  "Patterns",
+  "Work & life",
+  "Relationships",
   "Presence",
+  "Identity",
   "Intentional action",
 ] as const;
 
-export const workCreatesSpaceFor = [
+export const approachPillars = [
   {
-    title: "Clarity",
-    description: "A clearer sense of where you are and what matters next.",
+    title: "Awareness",
+    description:
+      "See what is actually happening before rushing to change it.",
   },
   {
     title: "Perspective",
-    description: "Room to see familiar situations from a wider view.",
-  },
-  {
-    title: "Awareness",
-    description: "Greater recognition of patterns, pressure and intuition.",
-  },
-  {
-    title: "Intentional action",
-    description: "Next steps that feel honest rather than forced.",
-  },
-] as const;
-
-export const principles = [
-  {
-    title: "Awareness before action",
     description:
-      "Slowing down enough to notice what is driving a choice often changes the choice itself.",
-  },
-  {
-    title: "Presence over pressure",
-    description:
-      "Clarity tends to arrive more readily when we meet life with attention instead of urgency alone.",
-  },
-  {
-    title: "Progress through learning",
-    description:
-      "What doesn't go as planned can become useful feedback — a way of refining direction rather than a verdict.",
-  },
-] as const;
-
-export const coachingExperience = [
-  {
-    title: "Conversation",
-    description:
-      "Honest, focused conversations that create room to see your situation differently.",
-  },
-  {
-    title: "Reflection",
-    description: "Exploring what is beneath the obvious answer.",
-  },
-  {
-    title: "Awareness",
-    description: "Recognizing patterns, assumptions and internal pressure.",
+      "Question the story, assumption or pressure shaping the situation.",
   },
   {
     title: "Action",
-    description: "Turning insight into intentional next steps.",
+    description:
+      "Move from understanding into a practical next step.",
+  },
+] as const;
+
+export const coachingFaq = [
+  {
+    question: "What happens in a coaching conversation?",
+    answer:
+      "Focused, honest conversation. Together you look at where you are, what feels off or unfinished, and what a more intentional next step might be.",
+  },
+  {
+    question: "Who do you typically work with?",
+    answer:
+      "People navigating transitions, decisions, uncertainty, or the sense that their current direction no longer fits.",
+  },
+  {
+    question: "Is coaching virtual?",
+    answer:
+      "Conversations can be held remotely. Format and logistics can be confirmed when you connect.",
+  },
+  {
+    question: "How often do people meet with you?",
+    answer:
+      "Cadence varies. Specific rhythm and format can be discussed during an initial conversation.",
+  },
+  {
+    question: "How do I know whether coaching is right for me?",
+    answer:
+      "If you're looking for space to think clearly and move with more intention — not clinical treatment — coaching may be a useful fit. An initial conversation helps clarify that.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Send a short note through the contact form. Kevin will respond and you can explore whether the work feels right.",
   },
 ] as const;

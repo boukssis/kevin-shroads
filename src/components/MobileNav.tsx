@@ -19,12 +19,9 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
   }
 
   return (
-    <div
-      id="mobile-nav"
-      className="border-t border-line bg-warm-white lg:hidden"
-    >
+    <div id="mobile-nav" className="border-t border-line bg-bone lg:hidden">
       <nav
-        className="container-site flex flex-col gap-1 py-6"
+        className="container-site flex flex-col gap-1 py-5"
         aria-label="Mobile"
       >
         {siteConfig.nav.map((item) => {
@@ -39,15 +36,15 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               href={item.href}
               onClick={onClose}
               className={cn(
-                "rounded-xl px-3 py-3 text-lg font-medium text-charcoal/80 transition-colors hover:bg-cream hover:text-forest",
-                active && "bg-cream text-forest",
+                "rounded-md px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-white hover:text-ink",
+                active && "bg-white text-ink",
               )}
             >
               {item.label}
             </Link>
           );
         })}
-        <div className="pt-4">
+        <div className="pt-3">
           <Button href="/contact" className="w-full" showArrow>
             Start a Conversation
           </Button>

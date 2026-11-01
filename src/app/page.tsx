@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
-import { Introduction } from "@/components/Introduction";
-import { WhoThisIsFor } from "@/components/WhoThisIsFor";
+import { HumanProblem } from "@/components/HumanProblem";
 import { CoachingFramework } from "@/components/CoachingFramework";
+import { KevinStoryPreview } from "@/components/KevinStoryPreview";
 import { MindfulnessSection } from "@/components/MindfulnessSection";
-import { CoachingPrinciples } from "@/components/CoachingPrinciples";
-import { AboutPreview } from "@/components/AboutPreview";
-import { QuoteSection } from "@/components/QuoteSection";
-import { CoachingExperience } from "@/components/CoachingExperience";
+import { WorkingTogether } from "@/components/WorkingTogether";
 import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/site";
 
@@ -21,14 +18,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Introduction />
-      <WhoThisIsFor />
+      <HumanProblem />
       <CoachingFramework />
+      <KevinStoryPreview />
       <MindfulnessSection />
-      <CoachingPrinciples />
-      <AboutPreview />
-      <QuoteSection />
-      <CoachingExperience />
+      <WorkingTogether />
       <CTASection />
     </>
   );

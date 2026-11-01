@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/site";
@@ -12,8 +12,8 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&h=630&q=80",
+        url: "/images/kevin-portrait.jpg",
         width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} — ${siteConfig.descriptor}`,
+        height: 1200,
+        alt: "Kevin Shroads",
       },
     ],
   },
@@ -66,6 +66,7 @@ const jsonLd = {
   jobTitle: "Coach",
   description: siteConfig.description,
   url: siteConfig.url,
+  image: `${siteConfig.url}/images/kevin-portrait.jpg`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Denver",
@@ -78,7 +79,6 @@ const jsonLd = {
     "Transformation coaching",
     "Mindfulness",
     "Meditation",
-    "Personal clarity",
   ],
 };
 
@@ -86,9 +86,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-warm-white text-charcoal">
+      <body className="flex min-h-full flex-col bg-bone text-ink">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

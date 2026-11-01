@@ -5,7 +5,7 @@ export default function NotFound() {
     <section className="section-pad">
       <div className="container-site max-w-2xl text-center">
         <p className="eyebrow">404</p>
-        <h1 className="display mt-4 text-5xl md:text-6xl">
+        <h1 className="display mt-4 text-[clamp(2.4rem,5vw,3.4rem)]">
           This page couldn&apos;t be found.
         </h1>
         <p className="mx-auto mt-5 max-w-md text-muted">

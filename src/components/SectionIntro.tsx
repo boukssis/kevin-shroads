@@ -18,19 +18,14 @@ export function SectionIntro({
   dark = false,
 }: SectionIntroProps) {
   return (
-    <div
-      className={cn(
-        align === "center" && "mx-auto text-center",
-        className,
-      )}
-    >
+    <div className={cn(align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
-        <p className={cn("eyebrow", dark && "!text-gold-soft")}>{eyebrow}</p>
+        <p className={cn("eyebrow", dark && "!text-copper")}>{eyebrow}</p>
       ) : null}
       <h2
         className={cn(
-          "display mt-4 max-w-3xl text-[clamp(2.1rem,4.5vw,3.6rem)]",
-          dark && "text-warm-white",
+          "display mt-3 max-w-3xl text-[clamp(1.85rem,3.8vw,2.85rem)]",
+          dark && "text-white",
           align === "center" && "mx-auto",
         )}
       >
@@ -39,8 +34,8 @@ export function SectionIntro({
       {children ? (
         <div
           className={cn(
-            "prose-measure mt-5 text-[1.02rem] leading-relaxed",
-            dark ? "text-warm-white/78" : "text-muted",
+            "prose-measure mt-4 text-[1.02rem] leading-relaxed",
+            dark ? "text-white/78" : "text-muted",
             align === "center" && "mx-auto",
           )}
         >

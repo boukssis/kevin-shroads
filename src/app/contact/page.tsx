@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteConfig } from "@/data/site";
-import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Connect",
   description:
     "Start a conversation with Kevin Shroads about 1:1 coaching, mindfulness, or upcoming group experiences.",
   alternates: { canonical: "/contact" },
@@ -13,105 +12,80 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Connect"
-        title="Start with a conversation."
-      >
-        <p>
-          Tell Kevin a little about where you are and what you&apos;re hoping to
-          explore.
-        </p>
-      </PageHero>
+    <section className="section-pad">
+      <div className="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <aside>
+          <p className="eyebrow">Connect</p>
+          <h1 className="display mt-4 text-[clamp(2.4rem,5vw,3.6rem)]">
+            Start with a conversation.
+          </h1>
+          <p className="mt-5 max-w-md text-[1.05rem] text-muted">
+            Tell Kevin a little about where you are and what you&apos;re hoping
+            to explore.
+          </p>
 
-      <section className="pb-24 md:pb-32">
-        <div className="container-site grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <aside className="space-y-8">
-            <div className="rounded-[16px] border border-line bg-cream p-7">
-              <h2 className="font-serif text-3xl text-forest">
-                What happens next
-              </h2>
-              <ol className="mt-5 space-y-4 text-sm text-muted">
-                <li>
-                  <span className="font-semibold text-forest">01 —</span> Share
-                  a short note about where you are.
-                </li>
-                <li>
-                  <span className="font-semibold text-forest">02 —</span> Kevin
-                  reviews your message and continues the conversation.
-                </li>
-                <li>
-                  <span className="font-semibold text-forest">03 —</span> Together
-                  you explore whether coaching or a group experience is the
-                  right fit.
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-forest">
-                Also available
-              </p>
-              <ul className="mt-4 space-y-3 text-sm text-muted">
-                <li>
-                  <a
-                    href={siteConfig.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-forest"
-                  >
-                    Connect on LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <Link href="/coaching" className="transition-colors hover:text-forest">
-                    Learn about 1:1 Coaching
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/mindfulness"
-                    className="transition-colors hover:text-forest"
-                  >
-                    Learn about Mindfulness
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/*
-              PRODUCTION BOOKING HOOK:
-              When Kevin provides a scheduling link, set NEXT_PUBLIC_BOOKING_URL
-              and surface it here / in primary CTAs. Until then, the contact form
-              remains the conversion path.
-            */}
-            {siteConfig.bookingUrl ? (
-              <div className="rounded-[16px] border border-line-strong p-7">
-                <p className="eyebrow">Schedule</p>
-                <p className="mt-3 text-muted">
-                  Prefer to book directly? Use the scheduling link below.
-                </p>
-                <a
-                  href={siteConfig.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary mt-5"
-                >
-                  Open scheduling
-                </a>
-              </div>
-            ) : null}
-
-            <p className="text-sm text-muted">
-              Coaching is not therapy, medical treatment or crisis support.
-            </p>
-          </aside>
-
-          <div>
-            <ContactForm />
+          <div className="mt-8 space-y-2 text-sm text-muted">
+            <p>Based in {siteConfig.location}</p>
+            <p>Coaching conversations can be held remotely where applicable.</p>
           </div>
+
+          <ol className="mt-8 space-y-2 text-sm text-muted">
+            <li>
+              <span className="font-medium text-ink">1.</span> Send a note
+            </li>
+            <li>
+              <span className="font-medium text-ink">2.</span> Kevin responds
+            </li>
+            <li>
+              <span className="font-medium text-ink">3.</span> Explore fit
+            </li>
+          </ol>
+
+          <div className="mt-8 space-y-2 text-sm">
+            <a
+              href={siteConfig.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink underline decoration-stone underline-offset-4 transition-colors hover:decoration-copper"
+            >
+              Connect on LinkedIn
+            </a>
+            <div className="flex flex-wrap gap-4 pt-2 text-muted">
+              <Link href="/coaching" className="hover:text-ink">
+                1:1 Coaching
+              </Link>
+              <Link href="/mindfulness" className="hover:text-ink">
+                Mindfulness
+              </Link>
+            </div>
+          </div>
+
+          {siteConfig.bookingUrl ? (
+            <div className="mt-8 rounded-lg border border-line-strong bg-white p-5">
+              <p className="eyebrow">Schedule</p>
+              <p className="mt-2 text-sm text-muted">
+                Prefer to book directly? Use the scheduling link below.
+              </p>
+              <a
+                href={siteConfig.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary mt-4"
+              >
+                Open scheduling
+              </a>
+            </div>
+          ) : null}
+
+          <p className="mt-8 text-xs text-muted">
+            Coaching is not therapy, medical treatment or crisis support.
+          </p>
+        </aside>
+
+        <div className="rounded-[10px] border border-line bg-white p-6 md:p-8">
+          <ContactForm />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

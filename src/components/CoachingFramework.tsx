@@ -1,63 +1,55 @@
 import { coachingFramework } from "@/data/site";
-import { SectionIntro } from "@/components/SectionIntro";
 import { Button } from "@/components/Button";
 
 type CoachingFrameworkProps = {
   showCta?: boolean;
+  compact?: boolean;
 };
 
-export function CoachingFramework({ showCta = true }: CoachingFrameworkProps) {
+export function CoachingFramework({
+  showCta = true,
+  compact = false,
+}: CoachingFrameworkProps) {
   return (
-    <section className="section-pad">
+    <section className={compact ? "section-pad-sm" : "section-pad"}>
       <div className="container-site">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-          <SectionIntro
-            eyebrow="1:1 Coaching"
-            title="A space to see more clearly."
-          >
-            <p>
-              1:1 coaching creates dedicated space to step outside the noise of
-              everyday life and look honestly at where you are, what is asking
-              for your attention, and where you want to go next.
-            </p>
-            <p className="mt-4">
-              The work centers on awareness, clarity, perspective, alignment and
-              intentional action — not pressure, performance or quick fixes.
-            </p>
-          </SectionIntro>
-          <div className="lg:pb-2">
-            <p className="text-sm text-muted">
-              A simple way to think about the work.
+        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="eyebrow">1:1 Coaching</p>
+            <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3rem)]">
+              A simple way to think about the work
+            </h2>
+            <p className="mt-4 max-w-xl text-muted">
+              Focused conversations that help you step outside the noise, see
+              your situation more clearly, and choose a next step you can stand
+              behind.
             </p>
           </div>
+          {showCta ? (
+            <Button href="/coaching" showArrow className="shrink-0 self-start md:self-auto">
+              Explore 1:1 Coaching
+            </Button>
+          ) : null}
         </div>
 
-        <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 divide-y divide-line border-y border-line">
           {coachingFramework.map((step) => (
             <li
               key={step.number}
-              className="border-t border-line-strong pt-5"
+              className="grid gap-3 py-6 md:grid-cols-[5rem_10rem_1fr] md:items-baseline md:gap-8"
             >
-              <p className="text-xs font-semibold tracking-[0.16em] text-gold">
+              <p className="text-xs font-semibold tracking-[0.16em] text-copper">
                 {step.number}
               </p>
-              <h3 className="mt-3 font-serif text-3xl text-forest">
+              <h3 className="font-serif text-2xl text-ink md:text-[1.7rem]">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
+              <p className="text-[0.98rem] leading-relaxed text-muted">
                 {step.description}
               </p>
             </li>
           ))}
         </ol>
-
-        {showCta ? (
-          <div className="mt-12">
-            <Button href="/coaching" showArrow>
-              Explore 1:1 Coaching
-            </Button>
-          </div>
-        ) : null}
       </div>
     </section>
   );

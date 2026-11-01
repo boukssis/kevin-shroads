@@ -20,24 +20,22 @@ export function CTASection({
   secondaryLabel = "Explore 1:1 Coaching",
 }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden bg-forest text-warm-white">
+    <section className="relative overflow-hidden bg-pine text-white">
       <Image
         src={images.cta.src}
         alt={images.cta.alt}
         fill
         sizes="100vw"
-        className="object-cover opacity-45"
+        className="object-cover opacity-35"
       />
-      <div className="absolute inset-0 bg-forest/70" />
-      <div className="container-site relative section-pad">
-        <div className="max-w-3xl">
-          <h2 className="display text-[clamp(2.2rem,5vw,4rem)] text-warm-white">
+      <div className="absolute inset-0 bg-pine/75" />
+      <div className="container-site relative py-16 md:py-20">
+        <div className="max-w-2xl">
+          <h2 className="display text-[clamp(1.9rem,4vw,3rem)] text-white">
             {title}
           </h2>
-          <p className="prose-measure mt-5 text-base text-warm-white/80 md:text-lg">
-            {copy}
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <p className="mt-4 max-w-xl text-[1.02rem] text-white/80">{copy}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href={primaryHref} variant="onDark" showArrow>
               {primaryLabel}
             </Button>

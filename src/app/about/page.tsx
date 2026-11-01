@@ -1,54 +1,36 @@
 import type { Metadata } from "next";
-import { images } from "@/data/site";
-import { PageHero } from "@/components/PageHero";
-import { PortraitPlaceholder } from "@/components/PortraitPlaceholder";
-import { EditorialImage } from "@/components/EditorialImage";
-import { QuoteSection } from "@/components/QuoteSection";
-import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/Button";
+import { CTASection } from "@/components/CTASection";
+import { KevinPortrait } from "@/components/KevinPortrait";
+import { approachPillars } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Kevin Shroads — a Colorado-based coach focused on personal transformation, mindfulness, clarity and intentional growth.",
+    "About Kevin Shroads — a Colorado-based coach whose work is shaped by lived experience, mindfulness and intentional change.",
   alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="About Kevin"
-        title="A different way of moving through change."
-      >
-        <p>
-          Kevin Shroads is a Colorado-based coach focused on personal
-          transformation, mindfulness and creating space for greater clarity and
-          alignment.
-        </p>
-      </PageHero>
-
-      <section className="pb-20 md:pb-28">
-        <div className="container-site grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <PortraitPlaceholder priority />
-          <div className="space-y-6 text-muted">
-            <p>
-              His work centers on slowing down enough to see what&apos;s happening
-              beneath the noise — and using that awareness to take more
-              intentional steps forward.
+      <section className="border-b border-line">
+        <div className="container-site grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+          <KevinPortrait
+            priority
+            className="mx-auto w-full max-w-md lg:max-w-none"
+            sizes="(max-width: 1024px) 90vw, 460px"
+          />
+          <div>
+            <p className="eyebrow">About Kevin</p>
+            <h1 className="display mt-4 text-[clamp(2.4rem,5vw,3.75rem)]">
+              A life experience that changed the way Kevin saw everything.
+            </h1>
+            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-muted">
+              Kevin Shroads is a Colorado-based coach whose work centers on
+              awareness, mindfulness, transformation and intentional living.
             </p>
-            <p>
-              Rather than pushing for premature answers, Kevin holds a thoughtful,
-              grounded space where people can reconnect with themselves,
-              understand their current chapter more clearly, and move with greater
-              intention.
-            </p>
-            <p>
-              Based in the Denver area, he works with people who are seeking
-              clarity, presence and a more honest relationship with the next
-              chapter of their lives.
-            </p>
-            <div className="pt-2">
+            <div className="mt-8">
               <Button href="/contact" showArrow>
                 Start a Conversation
               </Button>
@@ -57,114 +39,131 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream">
-        <div className="container-site grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <section className="section-pad bg-white">
+        <div className="container-site grid gap-10 lg:grid-cols-[10rem_1fr] lg:gap-16">
           <div>
-            <p className="eyebrow">Philosophy</p>
-            <h2 className="display mt-4 text-[clamp(2rem,4vw,3.3rem)]">
-              Kevin&apos;s philosophy
+            <p className="font-serif text-[5.5rem] leading-none tracking-[-0.04em] text-stone md:text-[6.5rem]">
+              2016
+            </p>
+          </div>
+          <div className="max-w-2xl">
+            <h2 className="display text-[clamp(1.9rem,4vw,3rem)]">
+              The year everything changed.
             </h2>
-            <div className="mt-6 space-y-4 text-muted">
+            <div className="mt-5 space-y-4 text-[1.02rem] text-muted">
               <p>
-                Transformation rarely begins with more force. It often begins with
-                enough space to notice what is already true — what feels aligned,
-                what feels pressured, and what has been waiting for attention.
+                In 2016, Kevin was diagnosed with brain, testicular and thyroid
+                cancers.
               </p>
               <p>
-                Kevin approaches coaching as a partnership in awareness: a place
-                to look carefully, speak honestly, and choose the next step from
-                clarity rather than overwhelm.
+                What followed included surgeries, chemotherapy and radiation —
+                an experience that interrupted life as he knew it.
+              </p>
+              <p>
+                At first, the question was the one many people would ask: Why
+                me?
+              </p>
+              <p>
+                As treatment and recovery unfolded, another question began to
+                emerge: What might this experience be asking me to change?
               </p>
             </div>
           </div>
-          <div className="space-y-10">
-            <article className="border-t border-line pt-6">
-              <h3 className="font-serif text-3xl text-forest">
-                Why awareness matters
-              </h3>
-              <p className="mt-4 text-muted">
-                When we can see the patterns, expectations and internal pressures
-                shaping our choices, those choices become freer. Awareness does
-                not solve everything on its own — but it creates the conditions
-                for more intentional action.
+        </div>
+      </section>
+
+      <section className="section-pad bg-pine text-white">
+        <div className="container-site max-w-4xl">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-copper">
+                From
               </p>
-            </article>
-            <article className="border-t border-line pt-6">
-              <h3 className="font-serif text-3xl text-forest">
-                How mindfulness influences his coaching
-              </h3>
-              <p className="mt-4 text-muted">
-                Mindfulness and meditation inform the quality of the space Kevin
-                holds: attentive, unhurried and curious. The aim is not perfection
-                or stillness at all costs, but a more conscious relationship with
-                what arises.
+              <p className="display mt-4 text-[clamp(1.8rem,3.5vw,2.6rem)] text-white">
+                &ldquo;Why is this happening to me?&rdquo;
               </p>
-            </article>
-            <article className="border-t border-line pt-6">
-              <h3 className="font-serif text-3xl text-forest">
-                How he thinks about transformation
-              </h3>
-              <p className="mt-4 text-muted">
-                Transformation is less a dramatic reinvention and more a series of
-                honest adjustments — clarifying what matters, aligning decisions
-                with that clarity, and learning from what unfolds along the way.
+            </div>
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-copper">
+                To
               </p>
-            </article>
+              <p className="display mt-4 text-[clamp(1.8rem,3.5vw,2.6rem)] text-white">
+                &ldquo;How is this happening for me?&rdquo;
+              </p>
+            </div>
           </div>
+          <p className="mt-10 max-w-2xl text-[1.05rem] text-white/78">
+            The shift didn&apos;t erase what happened. It changed Kevin&apos;s
+            relationship with it — and with how he thinks about awareness,
+            choice, presence and the way we respond to life.
+          </p>
         </div>
       </section>
 
       <section className="section-pad">
-        <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <EditorialImage
-            src={images.morning.src}
-            alt={images.morning.alt}
-            aspect="aspect-[5/4]"
-          />
-          <div>
-            <p className="eyebrow">Origin</p>
-            <h2 className="display mt-4 text-[clamp(2rem,4vw,3.3rem)]">
-              Shaped by lived experience
-            </h2>
-            <p className="mt-6 text-muted">
-              Kevin&apos;s own life experiences shaped a deeper exploration of
-              awareness, perspective, presence and transformation. That
-              exploration continues to inform the grounded, reflective quality of
-              his coaching.
+        <div className="container-site max-w-3xl">
+          <h2 className="display text-[clamp(1.9rem,4vw,3rem)]">
+            What followed
+          </h2>
+          <div className="mt-5 space-y-4 text-[1.02rem] text-muted">
+            <p>
+              After treatment, Kevin began exploring a different relationship
+              with life — one shaped less by autopilot and more by curiosity,
+              awareness and alignment.
             </p>
-
-            {/*
-              // OPTIONAL OWNER-APPROVED PERSONAL STORY
-              // ---------------------------------------------------------------
-              // Kevin has publicly shared a more personal health and recovery
-              // journey in older public materials. Do NOT automatically place
-              // diagnoses, treatment details, or other sensitive medical
-              // information on this website.
-              //
-              // If Kevin explicitly approves a personal origin story for this
-              // site, replace the paragraph below (or extend this section)
-              // with owner-approved copy. Keep the tone calm, human and
-              // non-clinical. Avoid medical claims or promises of outcomes.
-              //
-              // Example structure only — do not publish until approved:
-              // <p>...</p>
-              // ---------------------------------------------------------------
-            */}
-            <div className="mt-8 rounded-[14px] border border-dashed border-line-strong bg-cream/60 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sage">
-                Optional owner-approved personal story
-              </p>
-              <p className="mt-3 text-sm text-muted">
-                A more detailed personal origin story can be added here later if
-                Kevin chooses. The architecture is ready; the content waits for
-                his explicit approval.
-              </p>
-            </div>
+            <p>
+              That exploration eventually included mindfulness, meditation,
+              personal development and coaching. Those practices continue to
+              inform the grounded, reflective quality of the space he holds
+              today.
+            </p>
           </div>
         </div>
       </section>
 
-      <QuoteSection text="We are often closer to a meaningful next step than we realize — once we create enough quiet to notice it." />
+      <section className="section-pad bg-white">
+        <div className="container-site">
+          <div className="max-w-2xl">
+            <h2 className="display text-[clamp(1.9rem,4vw,3rem)]">
+              Today, that perspective shapes the space he holds for others.
+            </h2>
+            <p className="mt-5 text-muted">
+              Kevin&apos;s coaching is not about giving someone the perfect
+              answer. It is about creating enough room to notice, question,
+              understand, choose and act.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <p className="eyebrow">How Kevin approaches the work</p>
+            <div className="mt-6 grid gap-8 border-t border-line pt-8 md:grid-cols-3 md:gap-0">
+              {approachPillars.map((item, index) => (
+                <article
+                  key={item.title}
+                  className={
+                    index === 0
+                      ? "md:pr-8"
+                      : "border-t border-line pt-8 md:border-l md:border-t-0 md:px-8 md:pt-0"
+                  }
+                >
+                  <h3 className="font-serif text-[1.55rem] text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <Button href="/coaching" showArrow>
+              Explore 1:1 Coaching
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <CTASection
         title="Curious whether this work is a fit?"

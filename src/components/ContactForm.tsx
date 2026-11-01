@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
-  "mt-2 w-full rounded-[12px] border border-line-strong bg-warm-white px-4 py-3 text-[0.98rem] text-charcoal outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted/60 focus:border-forest focus:shadow-[0_0_0_3px_rgba(23,53,45,0.08)]";
+  "mt-2 w-full rounded-[6px] border border-line-strong bg-bone px-4 py-3 text-[0.98rem] text-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted/55 focus:border-pine focus:bg-white focus:shadow-[0_0_0_3px_rgba(38,61,52,0.08)]";
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
@@ -30,12 +30,6 @@ export function ContactForm() {
     };
 
     try {
-      /**
-       * PRODUCTION CONFIGURATION:
-       * Set NEXT_PUBLIC_CONTACT_ENDPOINT to your form provider, serverless
-       * function, or CRM webhook. Until then, /api/contact simulates success
-       * in development and returns a clear configuration message in production.
-       */
       const response = await fetch(siteConfig.contactEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -58,19 +52,19 @@ export function ContactForm() {
 
   if (state === "success") {
     return (
-      <div
-        className="rounded-[16px] border border-line bg-cream p-8 md:p-10"
-        role="status"
-        aria-live="polite"
-      >
+      <div role="status" aria-live="polite">
         <p className="eyebrow">Message received</p>
-        <h2 className="display mt-4 text-4xl">Thank you for reaching out.</h2>
-        <p className="prose-measure mt-4 text-muted">
+        <h2 className="display mt-3 text-3xl">Thank you for reaching out.</h2>
+        <p className="mt-3 max-w-md text-muted">
           Your note has been captured. Kevin will review it and continue the
           conversation from there.
         </p>
-        <div className="mt-8">
-          <Button type="button" variant="secondary" onClick={() => setState("idle")}>
+        <div className="mt-7">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => setState("idle")}
+          >
             Send another message
           </Button>
         </div>
@@ -79,9 +73,9 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6" noValidate>
-      <div className="grid gap-6 md:grid-cols-2">
-        <label className="block text-sm font-medium text-forest">
+    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+      <div className="grid gap-5 md:grid-cols-2">
+        <label className="block text-sm font-medium text-ink">
           Name
           <input
             className={fieldClass}
@@ -92,7 +86,7 @@ export function ContactForm() {
             placeholder="Your name"
           />
         </label>
-        <label className="block text-sm font-medium text-forest">
+        <label className="block text-sm font-medium text-ink">
           Email
           <input
             className={fieldClass}
@@ -105,7 +99,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="block text-sm font-medium text-forest">
+      <label className="block text-sm font-medium text-ink">
         Where are you located?
         <input
           className={fieldClass}
@@ -116,7 +110,7 @@ export function ContactForm() {
         />
       </label>
 
-      <label className="block text-sm font-medium text-forest">
+      <label className="block text-sm font-medium text-ink">
         What are you interested in?
         <select
           className={cn(fieldClass, "appearance-none")}
@@ -135,10 +129,10 @@ export function ContactForm() {
         </select>
       </label>
 
-      <label className="block text-sm font-medium text-forest">
+      <label className="block text-sm font-medium text-ink">
         What would you like support with?
         <textarea
-          className={cn(fieldClass, "min-h-40 resize-y")}
+          className={cn(fieldClass, "min-h-36 resize-y")}
           name="message"
           required
           placeholder="Share a little about where you are and what you're hoping to explore."
@@ -152,7 +146,7 @@ export function ContactForm() {
       ) : null}
 
       <Button type="submit" disabled={state === "submitting"} showArrow>
-        {state === "submitting" ? "Sending..." : "Send Message"}
+        {state === "submitting" ? "Sending..." : "Start the Conversation"}
       </Button>
     </form>
   );
